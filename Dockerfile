@@ -12,7 +12,9 @@ RUN wget https://github.com/heketi/heketi/releases/download/v${VERSION}/heketi-v
 
 COPY ["entrypoint.sh", "/"]
 
-EXPOSE 8080
+VOLUME ["/var/lib/heketi"]
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["--config=/etc/heketi/heketi.json"]
+
+EXPOSE 8080
